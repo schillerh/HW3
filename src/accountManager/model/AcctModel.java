@@ -1,5 +1,4 @@
 package accountManager.model;
-import java.lang.*;
 import java.text.DecimalFormat;
 
 /**
@@ -99,13 +98,11 @@ synchronized public void agentwithdraw(String amount, String srcCurrency) throws
 		double aAmount = Double.valueOf(amount.trim()).doubleValue();
 		while (this.toUSD(aAmount, srcCurrency)>this.acctBalance){
 			wait();
-			//throw new UnsupportedOperationException("Insufficient funds: amount to withdraw "+amount+" is greater than available funds: "+String.valueOf(this.fromUSD(acctBalance,srcCurrency)));
-		}
+			}
 		this.acctBalance= this.acctBalance-this.toUSD(aAmount, srcCurrency);
 		
 		ModelEvent me = new ModelEvent(this, 2, srcCurrency, Double.valueOf(df.format(this.fromUSD(acctBalance, srcCurrency))));
 		notifyChanged(me);
-		//return Double.valueOf(df.format(this.fromUSD(this.acctBalance, srcCurrency)));
 	}
 synchronized public void withdraw(String amount, String srcCurrency) {
 	if (!amount.trim().matches("^[0-9]+$")&& !amount.trim().matches("^[0-9].+$"))
@@ -119,7 +116,6 @@ synchronized public void withdraw(String amount, String srcCurrency) {
 	
 	ModelEvent me = new ModelEvent(this, 2, srcCurrency, Double.valueOf(df.format(this.fromUSD(acctBalance, srcCurrency))));
 	notifyChanged(me);
-	//return Double.valueOf(df.format(this.fromUSD(this.acctBalance, srcCurrency)));
 	}
 }
 	/**
@@ -138,33 +134,6 @@ synchronized public void withdraw(String amount, String srcCurrency) {
 		}
 		else return Double.valueOf(df.format(aAmount));
 	}
-	
-	/**
-	 * Gets the Account name
-	 *
-	 * @return the Account name
-	 */
-	//public String aname(){
-		//return this.acctName;
-//	}
-	
-	/**
-	 * Gets the Account Number ID
-	 *
-	 * @return the Account Number ID
-	 */
-	//public Integer aid(){
-		//return this.acctNumber;
-	//}
-	
-	/**
-	 * Get the Account balance
-	 *
-	 * @return the Account balance
-	 */
-	//public Double abalance(){
-		//return this.acctBalance;
-//	}
 	
 	/**
 	 * Prints the acct.

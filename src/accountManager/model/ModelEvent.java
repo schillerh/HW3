@@ -6,6 +6,11 @@ import java.awt.event.ActionEvent;
  */
 public class ModelEvent extends ActionEvent {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5747756222457981235L;
+
 	/** The amount. */
 	private double amount;
 	

@@ -3,7 +3,6 @@ package accountManager.controller;
 import accountManager.model.AcctModel;
 import accountManager.view.AcctView;
 import accountManager.view.JFrameView;
-import java.lang.*;
 
 
 /**
@@ -24,11 +23,6 @@ public class AcctController extends AbstractController {
 		((JFrameView)getView()).setVisible(true);
 	}
 	
-	/*public AcctController(AcctModel acct, String currency, int agentSet) {
-		setModel(acct);
-		setView(new AcctView((AcctModel)getModel(), this, "Dollars"));
-		((JFrameView)getView()).setVisible(true);
-	}*/
 
 	/**
 	 * Operation.

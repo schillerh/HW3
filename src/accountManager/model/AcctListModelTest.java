@@ -12,9 +12,6 @@ public class AcctListModelTest extends TestCase {
 	/** The account list model. */
 	private AcctListModel acctListModel;
 	
-	/** The file name. */
-	private String fileName;
-	
 	/** The account model. */
 	private AcctModel acctModel;
 	
@@ -23,7 +20,6 @@ public class AcctListModelTest extends TestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		fileName="f://test.txt";
 		acctListModel = new AcctListModel();
 	}
 

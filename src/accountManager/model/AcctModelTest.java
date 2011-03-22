@@ -1,7 +1,6 @@
 	package accountManager.model;
 	import junit.framework.TestCase;
-	import accountManager.model.AcctListModel;
-import java.text.DecimalFormat;
+	import java.text.DecimalFormat;
 	
 
 

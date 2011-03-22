@@ -4,10 +4,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dialog;
-import java.awt.*;
-import java.awt.event.*;
-
 import javax.swing.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -20,7 +16,6 @@ import javax.swing.SwingConstants;
 import accountManager.controller.AcctController;
 import accountManager.model.AcctModel;
 import accountManager.model.ModelEvent;
-import java.lang.*;
 
 /**
  * The Class AcctView.

@@ -9,11 +9,13 @@ import java.util.Iterator;
 public abstract class AbstractModel implements Model {
 	
 	/** The listeners. */
+	@SuppressWarnings("rawtypes")
 	private ArrayList listeners = new ArrayList(20);
 	
 	/* (non-Javadoc)
 	 * @see accountManager.model.Model#notifyChanged(accountManager.model.ModelEvent)
 	 */
+	@SuppressWarnings("rawtypes")
 	public void notifyChanged(ModelEvent event){
 		ArrayList list = (ArrayList)listeners.clone();
 		Iterator it = list.iterator();
@@ -28,6 +30,7 @@ public abstract class AbstractModel implements Model {
 	 *
 	 * @param l the ModelListener l
 	 */
+	@SuppressWarnings("unchecked")
 	public void addModelListener(ModelListener l){
 		listeners.add(l);
 	}

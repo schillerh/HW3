@@ -5,9 +5,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
-import java.awt.event.*;
-
 import javax.swing.*;
 
 import accountManager.controller.AcctAgentController;
@@ -15,7 +12,6 @@ import accountManager.controller.AcctController;
 import accountManager.model.AcctAgentModel;
 import accountManager.model.AcctModel;
 import accountManager.model.ModelEvent;
-import java.lang.*;
 
 /**
  * The Class AcctView.
@@ -54,9 +50,6 @@ public class AcctAgentView extends JFrameView {
 	private String srcCurrency;
 	private String Option;
 	
-	/** The text field. */
-	private JTextField textField = new JTextField(); 
-	
 	/** The balance field. */
 	private JTextField agentIDField = new JTextField();
 	
@@ -69,7 +62,6 @@ public class AcctAgentView extends JFrameView {
 	/** The rate of operation field */
 	private JTextField rateOpField = new JTextField();
 	
-	//private Thread thread;
 	private AcctAgentModel agent;
 	
 	/**
@@ -147,7 +139,6 @@ public class AcctAgentView extends JFrameView {
 	            button.addActionListener(new ActionListener() {
 	                public void actionPerformed(ActionEvent event) {
 	                	((AcctAgentController)getController()).operation(agentIDField.getText(),entryField.getText(),rateField.getText(), Option );
-	                	//entryField.setText("0.00");
 	                }
 	            });
 	            constraints = new GridBagConstraints();
@@ -155,7 +146,6 @@ public class AcctAgentView extends JFrameView {
 	            agentPanel.add(button, constraints);
 
 	            // Add a button to dismiss
-	            //button = new JButton("Dismiss");
 	            Disbutton.addActionListener(new ActionListener() {
 	                public void actionPerformed(ActionEvent event) {
 	                    dispose();
@@ -169,23 +159,6 @@ public class AcctAgentView extends JFrameView {
 	            constraints.insets = new Insets(10, 10, 10, 10);
 	            constraints.ipadx = constraints.ipady = 10;
 	            rootPanel.add(agentPanel, constraints);
-
-	            /*
-	            // Add a button to close the window
-	            button = new JButton("Dismiss");
-	            button.addActionListener(new ActionListener() {
-	                public void actionPerformed(ActionEvent event) {
-	                    dispose();
-	                }
-	            });
-	            constraints = new GridBagConstraints();
-	            constraints.insets = new Insets(0, 10, 10, 10);
-	            constraints.gridx = 0;
-	            constraints.gridy = 1;
-	            constraints.anchor = GridBagConstraints.LAST_LINE_END;
-	            rootPanel.add(button, constraints);
-				
-				*/
 
 	            this.setContentPane(rootPanel);
 	            this.pack();
@@ -203,15 +176,6 @@ public class AcctAgentView extends JFrameView {
       	public void errorDialog(String msg){
     		 JOptionPane.showMessageDialog(rootPane, msg);
     		 stateField.setText("Blocked");
-    		 /////////////////////////////////////////
-    		 /*
-    		 try {
-				this.thread.wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			*/////////////////////////////////////////
     	}
 
 	    /**
@@ -360,52 +324,12 @@ public class AcctAgentView extends JFrameView {
             constraints.ipadx = constraints.ipady = 10;
             rootPanel.add(agentPanel, constraints);
 
-            /*
-            // Add a button to close the window
-            button = new JButton("Dismiss");
-            button.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent event) {
-                    dispose();
-                }
-            });
-            constraints = new GridBagConstraints();
-            constraints.insets = new Insets(0, 10, 10, 10);
-            constraints.gridx = 0;
-            constraints.gridy = 1;
-            constraints.anchor = GridBagConstraints.LAST_LINE_END;
-            rootPanel.add(button, constraints);
 
-			*/
 
             this.setContentPane(rootPanel);
             this.pack();
             this.setTitle(this.Option + " agent " + model.getID() + " for account "+ model.getAcctID());
             this.setVisible(true);
-            ////////////////////////////////////////////////
-            /* TODO
-              thread = new Thread(new Runnable(){
-             
-    			public void run() {
-    				while(agent.getState()=="Running"){
-    				//((AcctAgentModel)getModel()).addModelListener(ModelListener l)
-    				((AcctAgentController)getController()).runAgent();
-    				agent.incrementCount();
-    				updateTransfer();
-    				System.out.println("Count: "+agent.getCount());
-    				long l= (new Double(agent.getRate())).longValue();
-    				l=1000/l;
-    				try {
-						Thread.sleep(l);						
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-    				}
-    			}
-            });
-            thread.start();
-           */
-
         } catch (Exception ex) {
             ex.printStackTrace();   
         }

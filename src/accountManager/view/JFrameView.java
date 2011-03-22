@@ -13,6 +13,11 @@ import accountManager.model.ModelListener;
  */
 abstract public class JFrameView extends JFrame implements View, ModelListener {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8138303214009086149L;
+
 	/** The model. */
 	private Model model;
 	
